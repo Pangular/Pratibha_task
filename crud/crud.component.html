@@ -1,0 +1,63 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">Sr No.</th>
+       <th scope="col">firstname</th> 
+      <th scope="col">middlename</th>
+      <th scope="col">lastname</th>
+      <th scope="col">gender</th>
+      <th scope="col">city</th>
+      <th scope="col">state</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody> 
+    <tr *ngFor ="let task1 of userResponse index as i" >
+       <td>{{i+1}}</td>
+      <td>{{task1.firstname}}</td>
+      <td>{{task1.middlename}}</td>
+      <td>{{task1.lastname}}</td>
+      <td>{{task1.gender}}</td>
+      <td>{{task1.city}}</td>
+      <td>{{task1.state}}</td>
+      <td><button (click)="EditRecords(task1)">Edit</button></td>
+      
+       <td ><button (click)="DeleteRecord(task1.id)">Delete</button></td>
+      
+     
+    </tr> 
+   </tbody>
+</table> 
+
+<div>
+    <form [formGroup]="personal">
+<label>Firstname</label> <input type="text" formControlName="firstname" placeholder="firstname"><br>
+<label>middlename</label> <input type="text" formControlName="middlename" placeholder="middlename"><br>
+<label>lastname</label> <input type="text" formControlName="lastname" placeholder="lastname"><br>
+<label>gender</label> <input type="text" formControlName="gender" placeholder="gender"><br>
+<label>city</label> <input type="text" formControlName="city" placeholder="city">  <br>
+<label>state</label> <input type="text" formControlName="state" placeholder="state"> <br>
+</form>
+    <button (click)="SubmitUserRecord()">Submit</button><br>
+    <button (click)="update()">Upadate</button>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
